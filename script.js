@@ -1,13 +1,46 @@
-// Timer Setup
+// Function to change background image
+function changeBackgroundImage() {
+  // Get the file input element
+  const input = document.getElementById("backgroundImage");
+  const file = input.files[0];  // Get the first file
+
+  if (file) {
+    const reader = new FileReader();
+    
+    // When file is loaded, set the background image of the body
+    reader.onload = function(e) {
+      document.body.style.backgroundImage = `url(${e.target.result})`;
+      document.body.style.backgroundSize = "cover";  // Ensure the image covers the screen
+      document.body.style.backgroundPosition = "center";  // Center the image
+    }
+
+    // Read the file as a data URL
+    reader.readAsDataURL(file);
+  }
+}
+
+// Reset the background to a default color
+function resetBackground() {
+  document.body.style.backgroundImage = "none";  // Remove any background image
+  document.body.style.backgroundColor = "#f5f5f5";  // Set to default background color
+}
+
+// Event listener for file input change (when a user uploads a background image)
+document.getElementById("backgroundImage").addEventListener("change", changeBackgroundImage);
+
+// Timer and Stopwatch logic (same as before)
 let countdownDisplay = document.getElementById("countdown");
-let sessionCount = document.getElementById("sessionCount");
+let stopwatchDisplay = document.getElementById("stopwatchTime");
 let currencyAmount = document.getElementById("currencyAmount");
 
 let countdownInterval;
-let timeRemaining = 25 * 60; // 25 minutes in seconds
+let stopwatchInterval;
+
+let timeRemaining = 25 * 60; // 25 minutes for Timer (in seconds)
+let stopwatchTime = 0; // Stopwatch starts from 0 seconds
 let currency = 0; // User's currency
 
-// Update the timer display
+// Function to update the timer display
 function updateTimer() {
   let minutes = Math.floor(timeRemaining / 60);
   let seconds = timeRemaining % 60;
@@ -15,7 +48,7 @@ function updateTimer() {
   document.title = `Time Remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 }
 
-// Start the Timer
+// Start Timer
 function startTimer() {
   countdownInterval = setInterval(function() {
     if (timeRemaining > 0) {
@@ -24,18 +57,11 @@ function startTimer() {
     } else {
       clearInterval(countdownInterval);
       alert("Time's up! Great work!");
-      currency += 5; // Earn 5 coins per session
+      currency += 5; // Earn 5 coins per study session
       currencyAmount.textContent = currency;
-      timeRemaining = 25 * 60; // Reset to default time
+      timeRemaining = 25 * 60; // Reset to 25 minutes
     }
   }, 1000);
-}
-
-// Reset Timer
-function resetTimer() {
-  clearInterval(countdownInterval);
-  timeRemaining = 25 * 60; // Reset to default time
-  updateTimer();
 }
 
 // Stop Timer
@@ -43,26 +69,62 @@ function stopTimer() {
   clearInterval(countdownInterval);
 }
 
-// Event Listeners
+// Reset Timer
+function resetTimer() {
+  clearInterval(countdownInterval);
+  timeRemaining = 25 * 60; // Reset to 25 minutes
+  updateTimer();
+}
+
+// Start Stopwatch
+function startStopwatch() {
+  stopwatchInterval = setInterval(function() {
+    stopwatchTime++;
+    let minutes = Math.floor(stopwatchTime / 60);
+    let seconds = stopwatchTime % 60;
+    stopwatchDisplay.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  }, 1000);
+}
+
+// Stop Stopwatch
+function stopStopwatch() {
+  clearInterval(stopwatchInterval);
+}
+
+// Reset Stopwatch
+function resetStopwatch() {
+  clearInterval(stopwatchInterval);
+  stopwatchTime = 0;
+  stopwatchDisplay.textContent = '00:00';
+}
+
+// Switch to Timer Mode
+function switchToTimer() {
+  document.getElementById("stopwatchContainer").style.display = 'none';
+  document.getElementById("timerContainer").style.display = 'block';
+  resetTimer(); // Reset the timer when switching to timer mode
+}
+
+// Switch to Stopwatch Mode
+function switchToStopwatch() {
+  document.getElementById("stopwatchContainer").style.display = 'block';
+  document.getElementById("timerContainer").style.display = 'none';
+  resetStopwatch(); // Reset the stopwatch when switching to stopwatch mode
+}
+
+// Event Listeners for Timer
 document.getElementById("startButton").addEventListener("click", startTimer);
 document.getElementById("resetButton").addEventListener("click", resetTimer);
 document.getElementById("stopButton").addEventListener("click", stopTimer);
 
-// Handle Background Upload
-document.getElementById("uploadBackground").addEventListener("change", function(event) {
-  const reader = new FileReader();
-  reader.onload = function() {
-    document.body.style.backgroundImage = `url(${reader.result})`;
-  };
-  reader.readAsDataURL(event.target.files[0]);
-});
+// Event Listeners for Stopwatch
+document.getElementById("startStopwatchButton").addEventListener("click", startStopwatch);
+document.getElementById("resetStopwatchButton").addEventListener("click", resetStopwatch);
+document.getElementById("stopStopwatchButton").addEventListener("click", stopStopwatch);
 
-// Handle Color Picker
-document.getElementById("colorPicker").addEventListener("input", function(event) {
-  document.body.style.backgroundColor = event.target.value;
-});
+// Event Listeners for Mode Switch
+document.getElementById("timerMode").addEventListener("click", switchToTimer);
+document.getElementById("stopwatchMode").addEventListener("click", switchToStopwatch);
 
-// Custom Button Images (Example)
-document.getElementById("startButton").style.backgroundImage = "url('path/to/custom-start-button.png')";
-document.getElementById("resetButton").style.backgroundImage = "url('path/to/custom-reset-button.png')";
-document.getElementById("stopButton").style.backgroundImage = "url('path/to/custom-stop-button.png')";
+// Initialize Timer Display
+updateTimer();
