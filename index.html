@@ -9,20 +9,13 @@
 <body>
   <h1>Study Timer & Stopwatch</h1>
 
-  <!-- Background Change Options -->
-  <div id="backgroundOptions">
-    <h3>Choose Background</h3>
-    <button id="defaultBackgroundButton">Default Background</button>
-    <button id="changeBackgroundButton">Change Background</button>
-    <input type="color" id="colorPicker" style="display:none;" />
-  </div>
-
+  <!-- Study Sessions Section -->
   <div id="modeSelection">
     <button id="timerModeButton">Timer Mode</button>
     <button id="stopwatchModeButton">Stopwatch Mode</button>
   </div>
 
-  <div id="timer" class="mode">
+  <div id="timer">
     <h2>Time Remaining: <span id="countdown">25:00</span></h2>
     <button id="startButton">Start Timer</button>
     <button id="resetButton">Reset Timer</button>
@@ -44,9 +37,16 @@
     <h3>Study Sessions: <span id="sessionCount">0</span></h3>
   </div>
 
-  <div id="playlist">
-    <h3>Spotify Playlist</h3>
-    <button onclick="window.open('https://open.spotify.com/playlist/your_playlist_id', '_blank')">Play Playlist</button>
+  <div id="currency">
+    <h3>Currency: <span id="currencyAmount">0</span> Coins</h3>
+  </div>
+
+  <!-- Store Section -->
+  <div id="store">
+    <h3>Store</h3>
+    <button id="buyStudyBuddyButton">Buy Study Buddy (50 Coins)</button>
+    <button id="buyFoodButton">Buy Food for Study Buddy (20 Coins)</button>
+    <p id="storeFeedback"></p>
   </div>
 
   <script src="script.js"></script>
