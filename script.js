@@ -1,12 +1,15 @@
 let countdownDisplay = document.getElementById("countdown");
 let stopwatchDisplay = document.getElementById("stopwatchDisplay");
 let sessionCount = document.getElementById("sessionCount");
+let currencyAmount = document.getElementById("currencyAmount");
+let storeFeedback = document.getElementById("storeFeedback");
 
 let countdownInterval;
 let stopwatchInterval;
 let timeRemaining = 25 * 60; // Default: 25 minutes in seconds
 let stopwatchTime = 0; // Stopwatch starts at 0
 let sessions = 0;
+let currency = 0; // User's currency
 
 function updateTimer() {
   let minutes = Math.floor(timeRemaining / 60);
@@ -29,7 +32,9 @@ function startTimer() {
       clearInterval(countdownInterval);
       alert("Time's up! Great work!");
       sessions++;
+      currency += 5; // Earn 5 coins per study session
       sessionCount.textContent = sessions;
+      currencyAmount.textContent = currency;
       timeRemaining = 25 * 60; // Reset to default 25 minutes
     }
   }, 1000);
@@ -74,18 +79,25 @@ function switchToStopwatchMode() {
   document.getElementById("timer").style.display = "none";
 }
 
-// Change background functions
-function setDefaultBackground() {
-  document.body.style.backgroundColor = "#f0f0f0"; // Set default background color
-  document.body.style.backgroundImage = "none"; // Remove any background image
+// Currency purchase functions
+function buyStudyBuddy() {
+  if (currency >= 50) {
+    currency -= 50; // Deduct the coins for buying a study buddy
+    storeFeedback.textContent = "You bought a Study Buddy!";
+  } else {
+    storeFeedback.textContent = "You don't have enough coins to buy a Study Buddy!";
+  }
+  currencyAmount.textContent = currency;
 }
 
-function changeBackground() {
-  let colorPicker = document.getElementById("colorPicker");
-  colorPicker.style.display = "block";
-  colorPicker.addEventListener("input", function() {
-    document.body.style.backgroundColor = colorPicker.value;
-  });
+function buyFoodForBuddy() {
+  if (currency >= 20) {
+    currency -= 20; // Deduct the coins for buying food
+    storeFeedback.textContent = "You bought food for your Study Buddy!";
+  } else {
+    storeFeedback.textContent = "You don't have enough coins to buy food!";
+  }
+  currencyAmount.textContent = currency;
 }
 
 document.getElementById("startButton").addEventListener("click", startTimer);
@@ -97,9 +109,9 @@ document.getElementById("setCustomTimeButton").addEventListener("click", setCust
 document.getElementById("timerModeButton").addEventListener("click", switchToTimerMode);
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
 
-// Background change buttons
-document.getElementById("defaultBackgroundButton").addEventListener("click", setDefaultBackground);
-document.getElementById("changeBackgroundButton").addEventListener("click", changeBackground);
+// Store purchase buttons
+document.getElementById("buyStudyBuddyButton").addEventListener("click", buyStudyBuddy);
+document.getElementById("buyFoodButton").addEventListener("click", buyFoodForBuddy);
 
 // Initial Timer Display
 updateTimer();
