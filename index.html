@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Study Timer</h1>
+
+  <div id="timer">
+    <h2>Time Remaining: <span id="countdown">25:00</span></h2>
+    <button id="startButton">Start Timer</button>
+    <button id="resetButton">Reset Timer</button>
+  </div>
+
+  <div id="counter">
+    <h3>Study Sessions: <span id="sessionCount">0</span></h3>
+  </div>
+
+  <div id="playlist">
+    <h3>Spotify Playlist</h3>
+    <button onclick="window.open('https://open.spotify.com/playlist/your_playlist_id', '_blank')">Play Playlist</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
