@@ -74,6 +74,20 @@ function switchToStopwatchMode() {
   document.getElementById("timer").style.display = "none";
 }
 
+// Change background functions
+function setDefaultBackground() {
+  document.body.style.backgroundColor = "#f0f0f0"; // Set default background color
+  document.body.style.backgroundImage = "none"; // Remove any background image
+}
+
+function changeBackground() {
+  let colorPicker = document.getElementById("colorPicker");
+  colorPicker.style.display = "block";
+  colorPicker.addEventListener("input", function() {
+    document.body.style.backgroundColor = colorPicker.value;
+  });
+}
+
 document.getElementById("startButton").addEventListener("click", startTimer);
 document.getElementById("resetButton").addEventListener("click", resetTimer);
 document.getElementById("startStopwatchButton").addEventListener("click", startStopwatch);
@@ -82,6 +96,10 @@ document.getElementById("setCustomTimeButton").addEventListener("click", setCust
 
 document.getElementById("timerModeButton").addEventListener("click", switchToTimerMode);
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
+
+// Background change buttons
+document.getElementById("defaultBackgroundButton").addEventListener("click", setDefaultBackground);
+document.getElementById("changeBackgroundButton").addEventListener("click", changeBackground);
 
 // Initial Timer Display
 updateTimer();
