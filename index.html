@@ -1,30 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Timer & Stopwatch</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
   <h1>Study Timer & Stopwatch</h1>
 
   <!-- Study Sessions Section -->
-  <div id="modeSelection">
+  <div id="modeSelection" class="button-group">
     <button id="timerModeButton">Timer Mode</button>
     <button id="stopwatchModeButton">Stopwatch Mode</button>
   </div>
 
   <div id="timer">
     <h2>Time Remaining: <span id="countdown">25:00</span></h2>
-    <button id="startButton">Start Timer</button>
-    <button id="resetButton">Reset Timer</button>
   </div>
 
   <div id="stopwatch" class="mode" style="display:none;">
     <h2>Time: <span id="stopwatchDisplay">00:00</span></h2>
-    <button id="startStopwatchButton">Start Stopwatch</button>
-    <button id="resetStopwatchButton">Reset Stopwatch</button>
   </div>
 
   <div id="customTime">
@@ -49,6 +37,12 @@
     <p id="storeFeedback"></p>
   </div>
 
+  <div id="timerControls" class="button-group">
+    <button id="startButton">Start Timer</button>
+    <button id="resetButton">Reset Timer</button>
+    <button id="startStopwatchButton">Start Stopwatch</button>
+    <button id="resetStopwatchButton">Reset Stopwatch</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
-</html>
