@@ -2,7 +2,7 @@ let countdownDisplay = document.getElementById("countdown");
 let sessionCount = document.getElementById("sessionCount");
 
 let countdownInterval;
-let timeRemaining = 25 * 60; // 25 minutes in seconds
+let timeRemaining = 25 * 60; // Default: 25 minutes in seconds
 let sessions = 0;
 
 function updateTimer() {
@@ -21,19 +21,30 @@ function startTimer() {
       alert("Time's up! Great work!");
       sessions++;
       sessionCount.textContent = sessions;
-      timeRemaining = 25 * 60; // Reset to 25 minutes
+      timeRemaining = 25 * 60; // Reset to default 25 minutes
     }
   }, 1000);
 }
 
 function resetTimer() {
   clearInterval(countdownInterval);
-  timeRemaining = 25 * 60;
+  timeRemaining = 25 * 60; // Reset to default 25 minutes
   updateTimer();
+}
+
+function setCustomTime() {
+  let customTimeInput = document.getElementById("customTimeInput").value;
+  if (customTimeInput && customTimeInput > 0) {
+    timeRemaining = customTimeInput * 60; // Convert minutes to seconds
+    updateTimer();
+  } else {
+    alert("Please enter a valid time.");
+  }
 }
 
 document.getElementById("startButton").addEventListener("click", startTimer);
 document.getElementById("resetButton").addEventListener("click", resetTimer);
+document.getElementById("setCustomTimeButton").addEventListener("click", setCustomTime);
 
 // Initial Timer Display
 updateTimer();
