@@ -3,16 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Timer</title>
+  <title>Study Timer & Stopwatch</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Study Timer</h1>
+  <h1>Study Timer & Stopwatch</h1>
 
-  <div id="timer">
+  <div id="modeSelection">
+    <button id="timerModeButton">Timer Mode</button>
+    <button id="stopwatchModeButton">Stopwatch Mode</button>
+  </div>
+
+  <div id="timer" class="mode">
     <h2>Time Remaining: <span id="countdown">25:00</span></h2>
     <button id="startButton">Start Timer</button>
     <button id="resetButton">Reset Timer</button>
+  </div>
+
+  <div id="stopwatch" class="mode" style="display:none;">
+    <h2>Time: <span id="stopwatchDisplay">00:00</span></h2>
+    <button id="startStopwatchButton">Start Stopwatch</button>
+    <button id="resetStopwatchButton">Reset Stopwatch</button>
   </div>
 
   <div id="customTime">
