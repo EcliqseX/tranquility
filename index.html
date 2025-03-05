@@ -1,45 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Timer & Stopwatch</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
   <h1>Study Timer & Stopwatch</h1>
 
-  <!-- Background Image Upload Section -->
-  <div id="backgroundUpload">
-    <label for="backgroundImage">Upload Custom Background Image:</label>
-    <input type="file" id="backgroundImage" accept="image/*">
-    <button onclick="resetBackground()">Reset Background</button>
+  <!-- Study Sessions Section -->
+  <div id="modeSelection">
+    <button id="timerModeButton">Timer Mode</button>
+    <button id="stopwatchModeButton">Stopwatch Mode</button>
   </div>
 
-  <!-- Timer and Stopwatch Content -->
-  <div id="modeSelector">
-    <button id="timerMode" onclick="switchToTimer()">Timer</button>
-    <button id="stopwatchMode" onclick="switchToStopwatch()">Stopwatch</button>
+  <div id="timer">
+    <h2>Time Remaining: <span id="countdown">25:00</span></h2>
+    <button id="startButton">Start Timer</button>
+    <button id="resetButton">Reset Timer</button>
   </div>
 
-  <div id="timerContainer">
-    <div id="timer">
-      <h2>Time: <span id="countdown">25:00</span></h2>
-    </div>
-    <div id="controls">
-      <button id="startButton">Start</button>
-      <button id="resetButton">Reset</button>
-      <button id="stopButton">Stop</button>
-    </div>
+  <div id="stopwatch" class="mode" style="display:none;">
+    <h2>Time: <span id="stopwatchDisplay">00:00</span></h2>
+    <button id="startStopwatchButton">Start Stopwatch</button>
+    <button id="resetStopwatchButton">Reset Stopwatch</button>
   </div>
 
-  <div id="stopwatchContainer" style="display: none;">
-    <div id="stopwatch">
-      <h2>Time: <span id="stopwatchTime">00:00</span></h2>
-    </div>
-    <div id="stopwatchControls">
-      <button id="startStopwatchButton">Start</button>
-      <button id="resetStopwatchButton">Reset</button>
-      <button id="stopStopwatchButton">Stop</button>
-    </div>
+  <div id="customTime">
+    <label for="customTimeInput">Enter Custom Time (in minutes): </label>
+    <input type="number" id="customTimeInput" min="1" max="60" placeholder="e.g. 30">
+    <button id="setCustomTimeButton">Set Time</button>
   </div>
 
-  <div id="currencySection">
+  <div id="counter">
+    <h3>Study Sessions: <span id="sessionCount">0</span></h3>
+  </div>
+
+  <div id="currency">
     <h3>Currency: <span id="currencyAmount">0</span> Coins</h3>
-    <button id="storeButton">Store</button>
+  </div>
+
+  <!-- Store Section -->
+  <div id="store">
+    <h3>Store</h3>
+    <button id="buyStudyBuddyButton">Buy Study Buddy (50 Coins)</button>
+    <button id="buyFoodButton">Buy Food for Study Buddy (20 Coins)</button>
+    <p id="storeFeedback"></p>
   </div>
 
   <script src="script.js"></script>
 </body>
+</html>
