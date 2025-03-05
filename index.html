@@ -49,6 +49,21 @@
     <p id="storeFeedback"></p>
   </div>
 
+  <!-- Spotify Integration -->
+  <h1>Study Timer & Spotify Music</h1>
+
+  <!-- Spotify Authentication -->
+  <button id="spotifyButton" onclick="authenticateSpotify()">Connect to Spotify</button>
+  <p id="spotifyStatus">Not connected</p>
+
+  <!-- Input for Playlist -->
+  <input type="text" id="playlistInput" placeholder="Enter Spotify Playlist Link">
+  <button onclick="playSpotifyPlaylist()">Play Playlist</button>
+
+  <!-- Spotify Player -->
+  <div id="spotifyPlayer"></div>
+
   <script src="script.js"></script>
+  <script src="spotify.js"></script>
 </body>
 </html>
