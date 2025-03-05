@@ -107,6 +107,11 @@ document.getElementById("resetStopwatchButton").addEventListener("click", resetS
 document.getElementById("setCustomTimeButton").addEventListener("click", setCustomTime);
 
 document.getElementById("timerModeButton").addEventListener("click", switchToTimerMode);
+// Set default background image when the page loads
+document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/8a/45/c6/8a45c6b0b17785c6dd052ec155b75826.gif')";
+document.body.style.backgroundSize = "cover";
+document.body.style.backgroundPosition = "center";
+
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
 
 // Store purchase buttons
