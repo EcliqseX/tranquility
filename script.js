@@ -109,8 +109,11 @@ document.getElementById("setCustomTimeButton").addEventListener("click", setCust
 document.getElementById("timerModeButton").addEventListener("click", switchToTimerMode);
 // Set default background image when the page loads
 document.body.style.backgroundImage = "url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnJ0MXA5dHdobnM3a2gzejQ5cnAzZzllZ2V3ZDFtbWEzb3VhdzdqMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/STThM1tDfstfLjM1qd/giphy.gif')";
-document.body.style.backgroundSize = "cover";
+document.body.style.backgroundSize = "80%";  // Shrinks the background to 80% of the screen
+document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundPosition = "center";
+document.body.style.backgroundAttachment = "fixed"; // Keeps the background fixed when scrolling
+
 
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
 
