@@ -125,11 +125,9 @@ h1 {
   padding: 5px 0;
   font-size: 14px;
   color: #333;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
+/* Input Styles */
 #todoInput {
   width: 100%;
   padding: 8px;
@@ -139,6 +137,7 @@ h1 {
   border-radius: 4px;
 }
 
+/* Add Todo Button Styles */
 #addTodoButton {
   padding: 8px 15px;
   background-color: #007BFF;
@@ -153,39 +152,38 @@ h1 {
 }
 
 /* Cross-Out and Delete Button Styling */
-button.crossButton, button.deleteButton {
+button.crossButton {
   margin-left: 10px;
   padding: 5px 10px;
   font-size: 12px;
   cursor: pointer;
   border: none;
-  background-color: #ccc;
-  border-radius: 4px;
-}
-
-button.crossButton:hover, button.deleteButton:hover {
-  background-color: #888;
-}
-
-button.crossButton {
   background-color: #ffd700; /* Golden for cross-out */
-}
-
-button.deleteButton {
-  background-color: #ff6347; /* Tomato red for delete */
+  border-radius: 4px;
 }
 
 button.crossButton:hover {
   background-color: #e6b800;
 }
 
-button.deleteButton:hover {
-  background-color: #e55347;
-}
-
 /* Strikethrough Task Text */
 #todoList li span {
   transition: text-decoration 0.3s ease;
+}
+
+/* Task Fading and Deleting */
+.fadeOut {
+  animation: fadeOutTask 1s forwards; /* Animation to fade out and delete */
+}
+
+@keyframes fadeOutTask {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50px); /* Slide out the task */
+  }
 }
 
 /* General Button Styles */
