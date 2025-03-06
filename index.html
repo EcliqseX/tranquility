@@ -5,6 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Timer & Stopwatch</title>
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Custom Style for To-Do List Color -->
+  <style>
+    /* To-Do list color */
+    #todoList li {
+      color: #FF6347; /* Change this to your desired color (e.g., red) */
+      font-size: 1.2em;
+      margin: 5px 0;
+    }
+
+    /* Add hover effect */
+    #todoList li:hover {
+      background-color: #f0f0f0;
+      cursor: pointer;
+    }
+
+    /* Cross out the text when task is completed */
+    #todoList li.completed {
+      text-decoration: line-through;
+      color: grey;
+    }
+  </style>
 </head>
 <body>
   <h1>Study Timer & Stopwatch</h1>
@@ -57,7 +79,6 @@
     <p id="storeFeedback"></p>
   </div>
 
-  
   <!-- Spotify Playlist Embed -->
   <iframe style="border-radius:12px" 
     src="https://open.spotify.com/embed/playlist/3MelsVnZV5g03wyiJsybHk?utm_source=generator&theme=0" 
