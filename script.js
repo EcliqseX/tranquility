@@ -128,9 +128,39 @@ document.getElementById('addTodoButton').addEventListener('click', function() {
   if (todoText) {
     const todoList = document.getElementById('todoList');
     const newTodo = document.createElement('li');
-    newTodo.textContent = todoText;
+    
+    // Create a span to hold the task text
+    const taskText = document.createElement('span');
+    taskText.textContent = todoText;
+
+    // Create a button for crossing out the task
+    const crossButton = document.createElement('button');
+    crossButton.textContent = "Cross Out";
+    crossButton.classList.add('crossButton');
+    
+    // Create a button for deleting the task
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add('deleteButton');
+    
+    // Add event listener for crossing out
+    crossButton.addEventListener('click', function() {
+      taskText.style.textDecoration = taskText.style.textDecoration === 'line-through' ? '' : 'line-through';
+    });
+
+    // Add event listener for deleting
+    deleteButton.addEventListener('click', function() {
+      todoList.removeChild(newTodo);
+    });
+
+    // Append the buttons and task text to the list item
+    newTodo.appendChild(taskText);
+    newTodo.appendChild(crossButton);
+    newTodo.appendChild(deleteButton);
     todoList.appendChild(newTodo);
-    todoInput.value = ''; // Clear input after adding
+
+    // Clear the input after adding the task
+    todoInput.value = '';
   }
 });
 
