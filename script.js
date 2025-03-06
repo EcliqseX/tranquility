@@ -82,7 +82,7 @@ function switchToStopwatchMode() {
 // Currency purchase functions
 function buyStudyBuddy() {
   if (currency >= 50) {
-    currency -= 50; // Deduct the coins for buying a study buddy
+    currency -= 50;
     storeFeedback.textContent = "You bought a Study Buddy!";
   } else {
     storeFeedback.textContent = "You don't have enough coins to buy a Study Buddy!";
@@ -92,7 +92,7 @@ function buyStudyBuddy() {
 
 function buyFoodForBuddy() {
   if (currency >= 20) {
-    currency -= 20; // Deduct the coins for buying food
+    currency -= 20;
     storeFeedback.textContent = "You bought food for your Study Buddy!";
   } else {
     storeFeedback.textContent = "You don't have enough coins to buy food!";
@@ -100,22 +100,18 @@ function buyFoodForBuddy() {
   currencyAmount.textContent = currency;
 }
 
-let isCustomBackground = true; // Track background state
-
+let isCustomBackground = true;
 function switchBackground() {
-    let body = document.body;
-
-    if (isCustomBackground) {
-        // Switch to the custom background image
-        body.style.background = "url('https://images3.alphacoders.com/134/thumb-1920-1347728.png') no-repeat center center fixed";
-        body.style.backgroundSize = "cover";
-        body.style.animation = "none"; // Stop animation
-    }
-
-    isCustomBackground = !isCustomBackground; // Toggle state
+  let body = document.body;
+  if (isCustomBackground) {
+    body.style.background = "url('https://images3.alphacoders.com/134/thumb-1920-1347728.png') no-repeat center center fixed";
+    body.style.backgroundSize = "cover";
+    body.style.animation = "none";
+  }
+  isCustomBackground = !isCustomBackground;
 }
 
-// To-Do List functionality
+// To-Do List functionality (Fixed Version)
 document.getElementById('addTodoButton').addEventListener('click', function() {
   const todoInput = document.getElementById('todoInput');
   const todoText = todoInput.value.trim();
@@ -123,34 +119,28 @@ document.getElementById('addTodoButton').addEventListener('click', function() {
   if (todoText) {
     const todoList = document.getElementById('todoList');
     const newTodo = document.createElement('li');
-    newTodo.textContent = todoText;
 
-    // Create the "cross out" button
+    const todoTextSpan = document.createElement('span');
+    todoTextSpan.textContent = todoText;
+    
     const crossButton = document.createElement('button');
     crossButton.textContent = "✓";
     crossButton.classList.add('crossButton');
+    
+    newTodo.appendChild(todoTextSpan);
     newTodo.appendChild(crossButton);
+    todoList.appendChild(newTodo);
 
-    // Add the cross-out functionality
     crossButton.addEventListener('click', function() {
-      newTodo.querySelector('span').style.textDecoration = 'line-through'; // Add strikethrough
-      newTodo.classList.add('fadeOut'); // Add fade-out animation
-      setTimeout(function() {
-        newTodo.remove(); // Remove the task after fade-out
-      }, 1000); // Duration matches the fade-out animation duration
+      todoTextSpan.style.textDecoration = 'line-through';
+      newTodo.classList.add('fadeOut');
+      setTimeout(() => newTodo.remove(), 1000);
     });
 
-    // Append new task to the list
-    const todoTextSpan = document.createElement('span');
-    todoTextSpan.textContent = todoText;
-    newTodo.insertBefore(todoTextSpan, crossButton); // Add text before the cross button
-
-    todoList.appendChild(newTodo);
-    todoInput.value = ''; // Clear input after adding
+    todoInput.value = '';
   }
 });
 
-// Enable 'Enter' key functionality for To-Do input
 document.getElementById('todoInput').addEventListener('keydown', function(event) {
   if (event.key === 'Enter') {
     document.getElementById('addTodoButton').click();
@@ -162,21 +152,12 @@ document.getElementById("resetButton").addEventListener("click", resetTimer);
 document.getElementById("startStopwatchButton").addEventListener("click", startStopwatch);
 document.getElementById("resetStopwatchButton").addEventListener("click", resetStopwatch);
 document.getElementById("setCustomTimeButton").addEventListener("click", setCustomTime);
-
 document.getElementById("timerModeButton").addEventListener("click", switchToTimerMode);
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
-
-// Store purchase buttons
 document.getElementById("buyStudyBuddyButton").addEventListener("click", buyStudyBuddy);
 document.getElementById("buyFoodButton").addEventListener("click", buyFoodForBuddy);
-
-// ✅ Set default background to custom image
 document.body.style.background = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg') no-repeat center center fixed";
 document.body.style.backgroundSize = "cover";
-
-// 🎯 Add Event Listener for Background Switch Button
 document.getElementById("switchBgButton").addEventListener("click", switchBackground);
-
-// ✅ Initial Timer Display
 updateTimer();
 updateStopwatch();
