@@ -55,13 +55,14 @@
   <!-- Spotify Authentication -->
   <button id="spotifyButton" onclick="authenticateSpotify()">Connect to Spotify</button>
   <p id="spotifyStatus">Not connected</p>
-
-  <!-- Input for Playlist -->
-  <input type="text" id="playlistInput" placeholder="Enter Spotify Playlist Link">
-  <button onclick="playSpotifyPlaylist()">Play Playlist</button>
-
-  <!-- Spotify Player -->
-  <div id="spotifyPlayer"></div>
+  
+  <!-- Spotify Playlist Embed -->
+  <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/playlist/3MelsVnZV5g03wyiJsybHk?utm_source=generator" 
+    width="100%" height="352" frameBorder="0" allowfullscreen=""
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
 
   <script src="script.js"></script>
   <script src="spotify.js"></script>
