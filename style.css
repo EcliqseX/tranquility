@@ -100,6 +100,7 @@ h1 {
 #switchBgButton:hover {
   background-color: #002244; /* Darker blue on hover */
 }
+
 /* To-Do List Section */
 #todoListSection {
   position: fixed;
@@ -124,6 +125,9 @@ h1 {
   padding: 5px 0;
   font-size: 14px;
   color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #todoInput {
@@ -148,8 +152,41 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Other styles remain the same... */
+/* Cross-Out and Delete Button Styling */
+button.crossButton, button.deleteButton {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background-color: #ccc;
+  border-radius: 4px;
+}
 
+button.crossButton:hover, button.deleteButton:hover {
+  background-color: #888;
+}
+
+button.crossButton {
+  background-color: #ffd700; /* Golden for cross-out */
+}
+
+button.deleteButton {
+  background-color: #ff6347; /* Tomato red for delete */
+}
+
+button.crossButton:hover {
+  background-color: #e6b800;
+}
+
+button.deleteButton:hover {
+  background-color: #e55347;
+}
+
+/* Strikethrough Task Text */
+#todoList li span {
+  transition: text-decoration 0.3s ease;
+}
 
 /* General Button Styles */
 button {
