@@ -100,6 +100,26 @@ function buyFoodForBuddy() {
   currencyAmount.textContent = currency;
 }
 
+let isGradient = true; // Track background state
+
+function switchBackground() {
+    let body = document.body;
+
+    if (isGradient) {
+        // Switch to the custom background image
+        body.style.background = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg') no-repeat center center fixed";
+        body.style.backgroundSize = "cover";
+        body.style.animation = "none"; // Stop animation
+    } else {
+        // Switch back to Animated Gradient
+        body.style.background = "linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1)";
+        body.style.backgroundSize = "400% 400%";
+        body.style.animation = "gradientAnimation 10s infinite alternate";
+    }
+
+    isGradient = !isGradient; // Toggle state
+}
+
 document.getElementById("startButton").addEventListener("click", startTimer);
 document.getElementById("resetButton").addEventListener("click", resetTimer);
 document.getElementById("startStopwatchButton").addEventListener("click", startStopwatch);
@@ -107,20 +127,20 @@ document.getElementById("resetStopwatchButton").addEventListener("click", resetS
 document.getElementById("setCustomTimeButton").addEventListener("click", setCustomTime);
 
 document.getElementById("timerModeButton").addEventListener("click", switchToTimerMode);
-// Set default background image when the page loads
-document.body.style.backgroundImage = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg')";
-document.body.style.backgroundSize = "120%";  // Shrinks the background to 80% of the screen
-document.body.style.backgroundRepeat = "no-repeat";
-document.body.style.backgroundPosition = "center";
-document.body.style.backgroundAttachment = "fixed"; // Keeps the background fixed when scrolling
-
-
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
 
 // Store purchase buttons
 document.getElementById("buyStudyBuddyButton").addEventListener("click", buyStudyBuddy);
 document.getElementById("buyFoodButton").addEventListener("click", buyFoodForBuddy);
 
-// Initial Timer Display
+// ✅ Set default background to Animated Gradient
+document.body.style.background = "linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1)";
+document.body.style.backgroundSize = "400% 400%";
+document.body.style.animation = "gradientAnimation 10s infinite alternate";
+
+// 🎯 Add Event Listener for Background Switch Button
+document.getElementById("switchBgButton").addEventListener("click", switchBackground);
+
+// ✅ Initial Timer Display
 updateTimer();
 updateStopwatch();
