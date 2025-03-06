@@ -91,20 +91,20 @@ h1 {
   padding: 10px 15px;
   font-size: 14px;
   border: none;
-  background: #003366; /* Dark Blue */
-  color: white;
+  background-color: #003366; /* Dark Blue */
+  color: white; /* White text */
   cursor: pointer;
   border-radius: 5px;
 }
 
 #switchBgButton:hover {
-  background: #002244; /* Darker blue on hover */
+  background-color: #002244; /* Darker blue on hover */
 }
 
 /* General Button Styles */
 button {
   background-color: #003366; /* Dark Blue */
-  color: white; /* White text */
+  color: white !important; /* Force white text */
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
