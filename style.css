@@ -82,6 +82,24 @@ h1 {
   cursor: pointer;
   margin-top: 10px;
 }
+/* Switch Background Button */
+#switchBgButton {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#switchBgButton:hover {
+    background: #555;
+}
+
 
 /* Optional Button Image Styling */
 button {
