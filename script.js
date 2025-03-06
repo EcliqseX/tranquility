@@ -61,7 +61,7 @@ function resetStopwatch() {
 
 function setCustomTime() {
   let customTimeInput = document.getElementById("customTimeInput").value;
-  if (customTimeInput && customTimeInput > 0) {
+  if (customTimeInput && !isNaN(customTimeInput) && customTimeInput > 0) {
     timeRemaining = customTimeInput * 60; // Convert minutes to seconds
     updateTimer();
   } else {
@@ -119,6 +119,27 @@ function switchBackground() {
 
     isGradient = !isGradient; // Toggle state
 }
+
+// To-Do List functionality
+document.getElementById('addTodoButton').addEventListener('click', function() {
+  const todoInput = document.getElementById('todoInput');
+  const todoText = todoInput.value.trim();
+  
+  if (todoText) {
+    const todoList = document.getElementById('todoList');
+    const newTodo = document.createElement('li');
+    newTodo.textContent = todoText;
+    todoList.appendChild(newTodo);
+    todoInput.value = ''; // Clear input after adding
+  }
+});
+
+// Enable 'Enter' key functionality for To-Do input
+document.getElementById('todoInput').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    document.getElementById('addTodoButton').click();
+  }
+});
 
 document.getElementById("startButton").addEventListener("click", startTimer);
 document.getElementById("resetButton").addEventListener("click", resetTimer);
