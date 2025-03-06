@@ -104,7 +104,7 @@ let isCustomBackground = true;
 function switchBackground() {
   let body = document.body;
   if (isCustomBackground) {
-    body.style.background = "url('https://images3.alphacoders.com/134/thumb-1920-1347728.png') no-repeat center center fixed";
+    body.style.background = "url('https://cubeupload.com/im/EclipseMisclick/20250305106Kleki.png') no-repeat center center fixed";
     body.style.backgroundSize = "cover";
     body.style.animation = "none";
   }
