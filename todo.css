@@ -1,0 +1,70 @@
+/* General Page Layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+/* To-Do List Styles */
+#todoContainer {
+    width: 250px;
+    height: 100vh;
+    background: #333;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Input Field */
+#taskInput {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+/* Add Button */
+button {
+    width: 100%;
+    padding: 8px;
+    background: #ff9a9e;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff6f6f;
+}
+
+/* Task List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #555;
+    margin: 5px 0;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Remove Button */
+.remove {
+    background: red;
+    border: none;
+    color: white;
+    padding: 4px 8px;
+    cursor: pointer;
+}
