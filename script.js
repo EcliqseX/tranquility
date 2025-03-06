@@ -107,7 +107,7 @@ function switchBackground() {
 
     if (isCustomBackground) {
         // Switch to the custom background image
-        body.style.background = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg') no-repeat center center fixed";
+        body.style.background = "url('https://images3.alphacoders.com/134/thumb-1920-1347728.png') no-repeat center center fixed";
         body.style.backgroundSize = "cover";
         body.style.animation = "none"; // Stop animation
     }
