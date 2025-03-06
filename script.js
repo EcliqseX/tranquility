@@ -111,8 +111,8 @@ function switchBackground() {
         body.style.backgroundSize = "cover";
         body.style.animation = "none"; // Stop animation
     } else {
-        // Switch back to Animated Gradient
-        body.style.background = "linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1)";
+        // Switch back to dark blue gradient
+        body.style.background = "linear-gradient(45deg, #2c3e50, #34495e, #1abc9c)";
         body.style.backgroundSize = "400% 400%";
         body.style.animation = "gradientAnimation 10s infinite alternate";
     }
@@ -175,8 +175,8 @@ document.getElementById("stopwatchModeButton").addEventListener("click", switchT
 document.getElementById("buyStudyBuddyButton").addEventListener("click", buyStudyBuddy);
 document.getElementById("buyFoodButton").addEventListener("click", buyFoodForBuddy);
 
-// ✅ Set default background to Animated Gradient
-document.body.style.background = "linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1)";
+// ✅ Set default background to dark blue gradient
+document.body.style.background = "linear-gradient(45deg, #2c3e50, #34495e, #1abc9c)";
 document.body.style.backgroundSize = "400% 400%";
 document.body.style.animation = "gradientAnimation 10s infinite alternate";
 
