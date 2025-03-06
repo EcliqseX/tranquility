@@ -108,7 +108,7 @@ document.getElementById("setCustomTimeButton").addEventListener("click", setCust
 
 document.getElementById("timerModeButton").addEventListener("click", switchToTimerMode);
 // Set default background image when the page loads
-document.body.style.backgroundImage = "url('https://s7.ezgif.com/tmp/ezgif-78915635e4e077.gif')";
+document.body.style.backgroundImage = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg')";
 document.body.style.backgroundSize = "120%";  // Shrinks the background to 80% of the screen
 document.body.style.backgroundRepeat = "no-repeat";
 document.body.style.backgroundPosition = "center";
