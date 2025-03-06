@@ -100,24 +100,19 @@ function buyFoodForBuddy() {
   currencyAmount.textContent = currency;
 }
 
-let isGradient = true; // Track background state
+let isCustomBackground = true; // Track background state
 
 function switchBackground() {
     let body = document.body;
 
-    if (isGradient) {
+    if (isCustomBackground) {
         // Switch to the custom background image
         body.style.background = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg') no-repeat center center fixed";
         body.style.backgroundSize = "cover";
         body.style.animation = "none"; // Stop animation
-    } else {
-        // Switch back to dark blue gradient
-        body.style.background = "linear-gradient(45deg, #2c3e50, #34495e, #1abc9c)";
-        body.style.backgroundSize = "400% 400%";
-        body.style.animation = "gradientAnimation 10s infinite alternate";
     }
 
-    isGradient = !isGradient; // Toggle state
+    isCustomBackground = !isCustomBackground; // Toggle state
 }
 
 // To-Do List functionality
@@ -175,10 +170,9 @@ document.getElementById("stopwatchModeButton").addEventListener("click", switchT
 document.getElementById("buyStudyBuddyButton").addEventListener("click", buyStudyBuddy);
 document.getElementById("buyFoodButton").addEventListener("click", buyFoodForBuddy);
 
-// ✅ Set default background to dark blue gradient
-document.body.style.background = "linear-gradient(45deg, #2c3e50, #34495e, #1abc9c)";
-document.body.style.backgroundSize = "400% 400%";
-document.body.style.animation = "gradientAnimation 10s infinite alternate";
+// ✅ Set default background to custom image
+document.body.style.background = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg') no-repeat center center fixed";
+document.body.style.backgroundSize = "cover";
 
 // 🎯 Add Event Listener for Background Switch Button
 document.getElementById("switchBgButton").addEventListener("click", switchBackground);
