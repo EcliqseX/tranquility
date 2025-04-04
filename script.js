@@ -24,7 +24,7 @@ function updateStopwatch() {
 }
 
 function startTimer() {
-  countdownInterval = setInterval(function() {
+  countdownInterval = setInterval(function () {
     if (timeRemaining > 0) {
       timeRemaining--;
       updateTimer();
@@ -47,7 +47,7 @@ function resetTimer() {
 }
 
 function startStopwatch() {
-  stopwatchInterval = setInterval(function() {
+  stopwatchInterval = setInterval(function () {
     stopwatchTime++;
     updateStopwatch();
   }, 1000);
@@ -100,38 +100,55 @@ function buyFoodForBuddy() {
   currencyAmount.textContent = currency;
 }
 
-let isCustomBackground = true;
-function switchBackground() {
-  let body = document.body;
-  if (isCustomBackground) {
-    body.style.background = "url('https://cubeupload.com/im/EclipseMisclick/20250305106Kleki.png') no-repeat center center fixed";
-    body.style.backgroundSize = "cover";
-    body.style.animation = "none";
-  }
-  isCustomBackground = !isCustomBackground;
+// Load saved background on page load
+let savedBg = localStorage.getItem("customBackground");
+if (savedBg) {
+  document.body.style.background = `url(${savedBg}) no-repeat center center fixed`;
+  document.body.style.backgroundSize = "cover";
 }
 
+// Background switching via upload
+function switchBackground() {
+  document.getElementById("bgUploadInput").click(); // Trigger hidden file input
+}
+
+document.getElementById("bgUploadInput").addEventListener("change", function () {
+  const file = this.files[0];
+  if (file && file.type.startsWith("image/")) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const imageUrl = e.target.result;
+      document.body.style.background = `url(${imageUrl}) no-repeat center center fixed`;
+      document.body.style.backgroundSize = "cover";
+      localStorage.setItem("customBackground", imageUrl);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    alert("Please upload a valid image.");
+  }
+});
+
 // To-Do List functionality (Fixed Version)
-document.getElementById('addTodoButton').addEventListener('click', function() {
+document.getElementById('addTodoButton').addEventListener('click', function () {
   const todoInput = document.getElementById('todoInput');
   const todoText = todoInput.value.trim();
-  
+
   if (todoText) {
     const todoList = document.getElementById('todoList');
     const newTodo = document.createElement('li');
 
     const todoTextSpan = document.createElement('span');
     todoTextSpan.textContent = todoText;
-    
+
     const crossButton = document.createElement('button');
     crossButton.textContent = "✓";
     crossButton.classList.add('crossButton');
-    
+
     newTodo.appendChild(todoTextSpan);
     newTodo.appendChild(crossButton);
     todoList.appendChild(newTodo);
 
-    crossButton.addEventListener('click', function() {
+    crossButton.addEventListener('click', function () {
       todoTextSpan.style.textDecoration = 'line-through';
       newTodo.classList.add('fadeOut');
       setTimeout(() => newTodo.remove(), 1000);
@@ -141,12 +158,13 @@ document.getElementById('addTodoButton').addEventListener('click', function() {
   }
 });
 
-document.getElementById('todoInput').addEventListener('keydown', function(event) {
+document.getElementById('todoInput').addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     document.getElementById('addTodoButton').click();
   }
 });
 
+// Button event listeners
 document.getElementById("startButton").addEventListener("click", startTimer);
 document.getElementById("resetButton").addEventListener("click", resetTimer);
 document.getElementById("startStopwatchButton").addEventListener("click", startStopwatch);
@@ -156,8 +174,7 @@ document.getElementById("timerModeButton").addEventListener("click", switchToTim
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
 document.getElementById("buyStudyBuddyButton").addEventListener("click", buyStudyBuddy);
 document.getElementById("buyFoodButton").addEventListener("click", buyFoodForBuddy);
-document.body.style.background = "url('https://cubeupload.com/im/EclipseMisclick/20250305106Kleki.png') no-repeat center center fixed";
-document.body.style.backgroundSize = "cover";
 document.getElementById("switchBgButton").addEventListener("click", switchBackground);
+
 updateTimer();
 updateStopwatch();
