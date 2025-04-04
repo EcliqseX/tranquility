@@ -100,12 +100,17 @@ function buyFoodForBuddy() {
   currencyAmount.textContent = currency;
 }
 
-// Load saved background on page load
+// Default background (in case no custom background is selected)
+const defaultBackground = "https://u.cubeupload.com/EclipseMisclick/20250305137Kleki.png";
+
+// Load saved background or apply default if none is saved
 let savedBg = localStorage.getItem("customBackground");
 if (savedBg) {
   document.body.style.background = `url(${savedBg}) no-repeat center center fixed`;
-  document.body.style.backgroundSize = "cover";
+} else {
+  document.body.style.background = `url(${defaultBackground}) no-repeat center center fixed`;
 }
+document.body.style.backgroundSize = "cover";
 
 // Background switching via upload
 function switchBackground() {
