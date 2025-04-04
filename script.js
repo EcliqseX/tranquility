@@ -156,7 +156,7 @@ document.getElementById("timerModeButton").addEventListener("click", switchToTim
 document.getElementById("stopwatchModeButton").addEventListener("click", switchToStopwatchMode);
 document.getElementById("buyStudyBuddyButton").addEventListener("click", buyStudyBuddy);
 document.getElementById("buyFoodButton").addEventListener("click", buyFoodForBuddy);
-document.body.style.background = "url('https://t3.ftcdn.net/jpg/02/46/55/16/360_F_246551674_iZhrbUtFYFyJeosc2EwUdkTP2MLiE3nm.jpg') no-repeat center center fixed";
+document.body.style.background = "url('https://cubeupload.com/im/EclipseMisclick/20250305106Kleki.png') no-repeat center center fixed";
 document.body.style.backgroundSize = "cover";
 document.getElementById("switchBgButton").addEventListener("click", switchBackground);
 updateTimer();
