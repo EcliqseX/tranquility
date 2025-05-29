@@ -205,9 +205,3 @@ button:hover {
   background-color: #002244; /* Darker blue on hover */
 }
 
-/* Optional Button Image Styling */
-button {
-  background-image: url('https://u.cubeupload.com/EclipseMisclick/202505010wrKleki.png');
-  background-size: cover;
-  background-position: center;
-}
