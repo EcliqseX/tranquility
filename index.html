@@ -27,6 +27,33 @@
       color: grey;
     }
   </style>
+  <style>
+  /* Minimalist font for the whole page */
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* To-Do list color */
+  #todoList li {
+    color: #FF6347;
+    font-size: 1.2em;
+    margin: 5px 0;
+  }
+
+  /* Add hover effect */
+  #todoList li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+
+  /* Cross out the text when task is completed */
+  #todoList li.completed {
+    text-decoration: line-through;
+    color: grey;
+  }
+</style>
 </head>
 <body>
   <h1>Study Timer & Stopwatch</h1>
@@ -58,7 +85,7 @@
   </div>
 
   <div id="customTime">
-    <label for="customTimeInput">Enter Custom Time (in minutes): </label>
+    <label for="customTimeInput">Enter Time (in minutes): </label>
     <input type="number" id="customTimeInput" min="1" max="60" placeholder="e.g. 30">
     <button id="setCustomTimeButton">Set Time</button>
   </div>
