@@ -1,4 +1,3 @@
-/* General Body Layout */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -14,6 +13,9 @@ body {
   background: linear-gradient(45deg, #ff9a9e, #fad0c4, #ffdde1);
   background-size: 400% 400%;
   animation: gradientAnimation 10s infinite alternate;
+
+  /* Added to keep animation running smoothly */
+  will-change: background-position;
 }
 
 /* Gradient Background Animation */
