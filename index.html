@@ -5,57 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Study Timer & Stopwatch</title>
   <link rel="stylesheet" href="style.css">
-  
-  <!-- Custom Style for To-Do List Color -->
+
+  <!-- Inter Minimalist Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- tsParticles Library -->
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+
   <style>
-    /* To-Do list color */
+    /* Minimalist font for the whole page */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+    /* Particles background container */
+    #tsparticles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* To-Do list styles */
     #todoList li {
-      color: #FF6347; /* Change this to your desired color (e.g., red) */
+      color: #FF6347;
       font-size: 1.2em;
       margin: 5px 0;
     }
 
-    /* Add hover effect */
     #todoList li:hover {
       background-color: #f0f0f0;
       cursor: pointer;
     }
 
-    /* Cross out the text when task is completed */
     #todoList li.completed {
       text-decoration: line-through;
       color: grey;
     }
   </style>
-  <style>
-  /* Minimalist font for the whole page */
-  body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* To-Do list color */
-  #todoList li {
-    color: #FF6347;
-    font-size: 1.2em;
-    margin: 5px 0;
-  }
-
-  /* Add hover effect */
-  #todoList li:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
-  }
-
-  /* Cross out the text when task is completed */
-  #todoList li.completed {
-    text-decoration: line-through;
-    color: grey;
-  }
-</style>
 </head>
 <body>
+  <!-- Particle Background -->
+  <div id="tsparticles"></div>
+
   <h1>Study Timer & Stopwatch</h1>
 
   <!-- To-Do List Section -->
@@ -116,9 +113,41 @@
   
   <!-- Background Switch Button -->
   <input type="file" id="bgUploadInput" accept="image/*" style="display: none;">
-<button id="switchBgButton">Switch Background</button>
+  <button id="switchBgButton">Switch Background</button>
 
+  <!-- Your JS files -->
   <script src="script.js"></script>
   <script src="spotify.js"></script>
+
+  <!-- Initialize tsParticles -->
+  <script>
+    tsParticles.load("tsparticles", {
+      particles: {
+        number: { value: 40 },
+        size: { value: 2 },
+        move: {
+          direction: "bottom",
+          speed: 0.7
+        },
+        opacity: {
+          value: 0.3
+        },
+        color: {
+          value: "#cccccc"
+        },
+        shape: {
+          type: "circle"
+        }
+      },
+      background: {
+        color: {
+          value: "transparent"
+        }
+      },
+      fullScreen: {
+        enable: false
+      }
+    });
+  </script>
 </body>
 </html>
